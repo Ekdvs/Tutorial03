@@ -44,4 +44,17 @@ public class StudentServiceImplementation implements StudentService {
         existStudent.setYearOfEnrollment(student.getYearOfEnrollment());
         return studentRepository.save(existStudent);
     }
+    @Override
+    public List<Student> getStudentsByEnrolledYear(String YearOfEnrollment) {
+    return studentRepository.findByYearOfEnrollment(YearOfEnrollment);}
+
+    @Override
+    public String getDepartmentNameById(Long id){
+        return studentRepository.findDepartmentNameById(id);
+    }
+
+    @Override
+    public void removeStudentsByEnrolmentYear(String YearOfEnrollment) {
+        studentRepository.deleteByYearOfEnrollmentyear(YearOfEnrollment);
+    }
 }
